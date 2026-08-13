@@ -32,7 +32,7 @@ function AdminDashboard() {
 
   const apiRequest = async (url, options = {}) => {
     const response = await fetch(
-      `http://localhost:5000/api/admin${url}`,
+      `https://engiverse-vtpa.onrender.com/api/admin${url}`,
       {
         ...options,
         headers: {

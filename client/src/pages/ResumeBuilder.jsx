@@ -308,7 +308,7 @@ function ResumeBuilder() {
       };
 
       const response = await fetch(
-        "http://localhost:5000/api/resumes",
+        "https://engiverse-vtpa.onrender.com/api/resumes",
         {
           method: "POST",
           headers: {
@@ -353,7 +353,7 @@ function ResumeBuilder() {
       if (!token) return;
 
       const response = await fetch(
-        "http://localhost:5000/api/resumes/me",
+        "https://engiverse-vtpa.onrender.com/api/resumes/me",
         {
           headers: {
             Authorization: `Bearer ${token}`,

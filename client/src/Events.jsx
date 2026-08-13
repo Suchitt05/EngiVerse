@@ -7,7 +7,7 @@ function Events() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/events")
+    fetch("https://engiverse-vtpa.onrender.com/api/events")
       .then((response) => {
         console.log("Response status:", response.status);
 

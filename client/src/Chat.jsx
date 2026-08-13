@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import "./App.css";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://engiverse-vtpa.onrender.com");
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -32,7 +32,7 @@ function Chat() {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/api/messages/${receiverId}`,
+          `https://engiverse-vtpa.onrender.com/api/messages/${receiverId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -110,7 +110,7 @@ function Chat() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/messages",
+        "https://engiverse-vtpa.onrender.com/api/messages",
         {
           method: "POST",
           headers: {

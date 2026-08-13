@@ -7,7 +7,7 @@ function Internships() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/internships")
+    fetch("https://engiverse-vtpa.onrender.com/api/internships")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load internships");

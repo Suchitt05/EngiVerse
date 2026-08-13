@@ -31,7 +31,7 @@ function AIAssistant() {
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/ai/ask",
+        "https://engiverse-vtpa.onrender.com/api/ai/ask",
         {
           method: "POST",
           headers: {
