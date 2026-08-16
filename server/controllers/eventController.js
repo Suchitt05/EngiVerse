@@ -1,6 +1,8 @@
 import Event from "../models/Event.js";
 
-// Create Event
+// ===============================
+// CREATE EVENT
+// ===============================
 export const createEvent = async (req, res) => {
   try {
     const {
@@ -11,21 +13,34 @@ export const createEvent = async (req, res) => {
       registrationLink,
     } = req.body;
 
+    // Basic validation
+    if (!title || !description || !date) {
+      return res.status(400).json({
+        success: false,
+        message: "Title, description and date are required",
+      });
+    }
+
     const event = await Event.create({
-      title,
-      description,
+      title: title.trim(),
+      description: description.trim(),
       date,
-      location,
-      registrationLink,
+      location: location?.trim() || "Online",
+      registrationLink: registrationLink?.trim() || "",
       organizer: req.user.id,
     });
+
+    const populatedEvent = await Event.findById(event._id)
+      .populate("organizer", "name email profilePic");
 
     res.status(201).json({
       success: true,
       message: "Event created successfully",
-      event,
+      event: populatedEvent,
     });
   } catch (error) {
+    console.error("Create Event Error:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -33,7 +48,10 @@ export const createEvent = async (req, res) => {
   }
 };
 
-// Get All Events
+
+// ===============================
+// GET ALL EVENTS
+// ===============================
 export const getEvents = async (req, res) => {
   try {
     const events = await Event.find()
@@ -46,6 +64,8 @@ export const getEvents = async (req, res) => {
       events,
     });
   } catch (error) {
+    console.error("Get Events Error:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -53,7 +73,10 @@ export const getEvents = async (req, res) => {
   }
 };
 
-// Get Single Event
+
+// ===============================
+// GET SINGLE EVENT
+// ===============================
 export const getEvent = async (req, res) => {
   try {
     const event = await Event.findById(req.params.id)
@@ -71,6 +94,8 @@ export const getEvent = async (req, res) => {
       event,
     });
   } catch (error) {
+    console.error("Get Event Error:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -78,7 +103,10 @@ export const getEvent = async (req, res) => {
   }
 };
 
-// Update Event
+
+// ===============================
+// UPDATE EVENT
+// ===============================
 export const updateEvent = async (req, res) => {
   try {
     const event = await Event.findById(req.params.id);
@@ -90,8 +118,12 @@ export const updateEvent = async (req, res) => {
       });
     }
 
-    // Only organizer can update
-    if (event.organizer.toString() !== req.user.id) {
+    // Admin can update any event
+    // Normal user can update only their own event
+    if (
+      req.user.role !== "admin" &&
+      event.organizer.toString() !== req.user.id
+    ) {
       return res.status(403).json({
         success: false,
         message: "You are not authorized to update this event",
@@ -100,12 +132,18 @@ export const updateEvent = async (req, res) => {
 
     const updatedEvent = await Event.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      {
+        title: req.body.title,
+        description: req.body.description,
+        date: req.body.date,
+        location: req.body.location,
+        registrationLink: req.body.registrationLink,
+      },
       {
         new: true,
         runValidators: true,
       }
-    );
+    ).populate("organizer", "name email profilePic");
 
     res.status(200).json({
       success: true,
@@ -113,6 +151,8 @@ export const updateEvent = async (req, res) => {
       event: updatedEvent,
     });
   } catch (error) {
+    console.error("Update Event Error:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -120,7 +160,10 @@ export const updateEvent = async (req, res) => {
   }
 };
 
-// Delete Event
+
+// ===============================
+// DELETE EVENT
+// ===============================
 export const deleteEvent = async (req, res) => {
   try {
     const event = await Event.findById(req.params.id);
@@ -132,8 +175,12 @@ export const deleteEvent = async (req, res) => {
       });
     }
 
-    // Only organizer can delete
-    if (event.organizer.toString() !== req.user.id) {
+    // Admin can delete ANY event
+    // Normal user can delete only their own event
+    if (
+      req.user.role !== "admin" &&
+      event.organizer.toString() !== req.user.id
+    ) {
       return res.status(403).json({
         success: false,
         message: "You are not authorized to delete this event",
@@ -147,6 +194,8 @@ export const deleteEvent = async (req, res) => {
       message: "Event deleted successfully",
     });
   } catch (error) {
+    console.error("Delete Event Error:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,

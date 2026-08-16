@@ -3918,3 +3918,1983 @@ body {
     margin: 15mm;
   }
 }
+
+/* =========================================
+   ENGI-VERSE PROJECTS - ADD PROJECT UI
+   Add this at the END of App.css
+========================================= */
+
+/* ---------- Add Project Button ---------- */
+
+.add-project-btn {
+  margin-top: 22px;
+  padding: 11px 22px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #6c63ff, #8b5cf6);
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.add-project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.25);
+}
+
+
+/* ---------- Add Project Container ---------- */
+
+.add-project-container {
+  width: min(700px, 90%);
+  margin: 0 auto 40px;
+
+  padding: 28px;
+
+  border-radius: 14px;
+
+  /* Use the same style as your existing cards */
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-sizing: border-box;
+}
+
+
+/* ---------- Form Heading ---------- */
+
+.add-project-container h2 {
+  margin: 0 0 25px;
+
+  text-align: center;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  color: inherit;
+}
+
+
+/* ---------- Labels ---------- */
+
+.add-project-container label {
+  display: block;
+
+  margin-top: 16px;
+  margin-bottom: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: inherit;
+}
+
+
+/* ---------- Inputs ---------- */
+
+.add-project-container input,
+.add-project-container textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  /*
+     Transparent background allows your
+     existing EngiVerse background to show.
+  */
+  background: rgba(255, 255, 255, 0.05);
+
+  color: inherit;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition: all 0.2s ease;
+}
+
+
+/* Placeholder */
+
+.add-project-container input::placeholder,
+.add-project-container textarea::placeholder {
+  opacity: 0.5;
+}
+
+
+/* Focus */
+
+.add-project-container input:focus,
+.add-project-container textarea:focus {
+  border-color: #6c63ff;
+
+  box-shadow:
+    0 0 0 2px rgba(108, 99, 255, 0.12);
+}
+
+
+.add-project-container textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+
+/* ---------- Small Help Text ---------- */
+
+.add-project-container small {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 12px;
+
+  opacity: 0.55;
+}
+
+
+/* ---------- Success / Error Message ---------- */
+
+.project-form-message {
+  margin-top: 18px;
+  padding: 11px 14px;
+
+  border-radius: 8px;
+
+  background: rgba(108, 99, 255, 0.10);
+
+  border: 1px solid rgba(108, 99, 255, 0.20);
+
+  color: inherit;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
+
+/* ---------- Form Buttons ---------- */
+
+.project-form-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+
+.project-form-buttons button {
+  flex: 1;
+
+  padding: 11px 18px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+
+/* Cancel */
+
+.project-form-buttons button[type="button"] {
+  background: transparent;
+
+  color: inherit;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-form-buttons button[type="button"]:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+
+/* Create */
+
+.project-form-buttons button[type="submit"] {
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #6c63ff,
+    #8b5cf6
+  );
+
+  color: #fff;
+}
+
+.project-form-buttons button[type="submit"]:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(108, 99, 255, 0.25);
+}
+
+
+/* Disabled */
+
+.project-form-buttons button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+========================================= */
+
+.project-card {
+  position: relative;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+
+/* Project image */
+
+.project-image {
+  width: 100%;
+  height: 180px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 10px;
+
+  margin-bottom: 15px;
+}
+
+
+/* Technology tags */
+
+.technology-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin: 15px 0;
+}
+
+
+.technology-list span {
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  background: rgba(108, 99, 255, 0.10);
+
+  border: 1px solid rgba(108, 99, 255, 0.18);
+
+  color: inherit;
+
+  font-size: 12px;
+}
+
+
+/* Project links */
+
+.project-card a {
+  display: inline-block;
+
+  margin-right: 14px;
+  margin-top: 8px;
+
+  color: #8b7cff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.project-card a:hover {
+  color: #a69eff;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .add-project-container {
+    width: 100%;
+    padding: 22px;
+  }
+
+  .project-form-buttons {
+    flex-direction: column;
+  }
+
+  .add-project-btn {
+    width: auto;
+  }
+}
+/* =========================================
+   DELETE PROJECT BUTTON
+========================================= */
+
+.delete-project-btn {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px 15px;
+
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.delete-project-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.55);
+  transform: translateY(-1px);
+}
+
+.delete-project-btn:active {
+  transform: translateY(0);
+}
+
+.delete-project-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   ENGIVERSE - EVENTS PAGE
+   Same Dark Tech Theme as Internship
+========================================================= */
+
+.events-page {
+  min-height: 100vh;
+  padding: 100px 7% 50px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(124, 58, 237, 0.10), transparent 30%),
+    #080d1c;
+  color: #e5e7eb;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.events-header {
+  max-width: 900px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.events-header .tagline {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.events-header h1 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.events-header h1 span {
+  color: #3b82f6;
+}
+
+.events-header > p:last-of-type {
+  max-width: 650px;
+  margin: 20px auto 0;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ADMIN ADD EVENT BUTTON
+========================================================= */
+
+.event-admin-add-btn {
+  margin-top: 28px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+  transition: 0.25s ease;
+}
+
+.event-admin-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+
+/* =========================================================
+   EVENTS GRID
+========================================================= */
+
+.events-grid {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+/* =========================================================
+   EVENT CARD
+========================================================= */
+
+.event-card {
+  position: relative;
+
+  padding: 28px;
+
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  border-radius: 18px;
+
+  background: rgba(15, 23, 42, 0.78);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
+
+  overflow: hidden;
+}
+
+
+/* TOP BLUE LINE */
+
+.event-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  opacity: 0.8;
+}
+
+
+/* CARD HOVER */
+
+.event-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(59, 130, 246, 0.45);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   EVENT ICON
+========================================================= */
+
+.event-icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(37, 99, 235, 0.12);
+
+  border: 1px solid rgba(59, 130, 246, 0.18);
+
+  font-size: 25px;
+}
+
+
+/* =========================================================
+   EVENT TITLE
+========================================================= */
+
+.event-card h2 {
+  margin: 0 0 10px;
+
+  color: #f8fafc;
+
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   ORGANIZER
+========================================================= */
+
+.event-organizer {
+  margin: 0 0 16px;
+
+  color: #60a5fa;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.event-description {
+  min-height: 72px;
+
+  margin-bottom: 20px;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   EVENT INFO
+========================================================= */
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  margin-bottom: 22px;
+  padding: 15px;
+
+  border-radius: 12px;
+
+  background: rgba(2, 6, 23, 0.42);
+
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.event-info span {
+  color: #cbd5e1;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+========================================================= */
+
+.event-card .event-btn {
+  width: 100%;
+  box-sizing: border-box;
+
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 18px rgba(37, 99, 235, 0.18);
+
+  transition: 0.25s ease;
+}
+
+.event-card .event-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 24px rgba(37, 99, 235, 0.32);
+}
+
+
+/* =========================================================
+   ADMIN ACTIONS
+========================================================= */
+
+.event-admin-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 12px;
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+
+/* EDIT */
+
+.event-edit-btn {
+  flex: 1;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(96, 165, 250, 0.25);
+
+  border-radius: 8px;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  color: #93c5fd;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.event-edit-btn:hover {
+  background: rgba(37, 99, 235, 0.20);
+
+  border-color: rgba(96, 165, 250, 0.45);
+}
+
+
+/* DELETE */
+
+.event-delete-btn {
+  flex: 1;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(248, 113, 113, 0.20);
+
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.07);
+
+  color: #fca5a5;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.event-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.16);
+
+  border-color: rgba(248, 113, 113, 0.40);
+}
+
+
+/* =========================================================
+   LOADING / ERROR / EMPTY MESSAGE
+========================================================= */
+
+.events-message {
+  width: min(600px, 90%);
+
+  margin: 50px auto;
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  border: 1px solid rgba(96, 165, 250, 0.12);
+
+  border-radius: 18px;
+
+  background: rgba(15, 23, 42, 0.70);
+}
+
+.events-message .loading-icon {
+  margin-bottom: 15px;
+
+  font-size: 38px;
+}
+
+.events-message h2 {
+  margin: 0 0 10px;
+
+  color: #f8fafc;
+}
+
+.events-message p {
+  margin: 0 0 20px;
+
+  color: #94a3b8;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   TRY AGAIN / ADD FIRST EVENT
+========================================================= */
+
+.events-message .event-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 20px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.events-message .event-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FORM OVERLAY
+========================================================= */
+
+.event-form-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(2, 6, 23, 0.82);
+
+  backdrop-filter: blur(8px);
+
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.event-form-card {
+  width: min(650px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  border: 1px solid rgba(96, 165, 250, 0.18);
+
+  border-radius: 18px;
+
+  background: #0f172a;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.event-form-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.event-form-header h2 {
+  margin: 0;
+
+  color: #f8fafc;
+}
+
+
+/* CLOSE BUTTON */
+
+.event-close-btn {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+
+  border-radius: 9px;
+
+  background: rgba(148, 163, 184, 0.06);
+
+  color: #cbd5e1;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.event-close-btn:hover {
+  background: rgba(239, 68, 68, 0.12);
+
+  color: #fca5a5;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.event-form-group {
+  margin-bottom: 17px;
+}
+
+.event-form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #cbd5e1;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.event-form-group input,
+.event-form-group textarea,
+.event-form-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 13px;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #111c32;
+
+  color: #f8fafc;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  transition: 0.2s ease;
+}
+
+.event-form-group textarea {
+  resize: vertical;
+}
+
+.event-form-group input::placeholder,
+.event-form-group textarea::placeholder {
+  color: #64748b;
+}
+
+.event-form-group input:focus,
+.event-form-group textarea:focus,
+.event-form-group select:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.event-form-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+
+/* CANCEL */
+
+.event-cancel-btn {
+  flex: 1;
+
+  padding: 12px;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.event-cancel-btn:hover {
+  background: rgba(148, 163, 184, 0.08);
+
+  color: #e2e8f0;
+}
+
+
+/* SAVE */
+
+.event-save-btn {
+  flex: 1;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.event-save-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 20px rgba(37, 99, 235, 0.25);
+}
+
+.event-save-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.events-page .back-home {
+  margin-top: 60px;
+
+  text-align: center;
+}
+
+.events-page .back-home button {
+  padding: 10px 18px;
+
+  border: 1px solid rgba(96, 165, 250, 0.16);
+
+  border-radius: 9px;
+
+  background: rgba(15, 23, 42, 0.70);
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.events-page .back-home button:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+
+  color: #dbeafe;
+
+  background: rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.event-form-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.event-form-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.event-form-card::-webkit-scrollbar-thumb {
+  background: #334155;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .events-page {
+    padding: 80px 20px 40px;
+  }
+
+  .events-header h1 {
+    font-size: 40px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    padding: 22px;
+  }
+
+  .event-form-card {
+    padding: 22px;
+  }
+
+  .event-form-actions {
+    flex-direction: column;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .event-admin-actions {
+    flex-direction: column;
+  }
+
+}
+/* =========================================================
+   ENGIVERSE - INTERNSHIPS PAGE
+   Dark Engineering / Tech Theme
+========================================================= */
+
+.internships-page {
+  min-height: 100vh;
+  padding: 100px 7% 50px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(124, 58, 237, 0.10), transparent 30%),
+    #080d1c;
+  color: #e5e7eb;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.internships-header {
+  max-width: 900px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.internships-header .tagline {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #60a5fa;
+}
+
+.internships-header h1 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.1;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.internships-header h1 span {
+  color: #3b82f6;
+}
+
+.internships-header > p:last-of-type {
+  max-width: 650px;
+  margin: 20px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   ADMIN ADD BUTTON
+========================================================= */
+
+.internship-admin-add-btn {
+  margin-top: 28px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+  transition: 0.25s ease;
+}
+
+.internship-admin-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+
+/* =========================================================
+   INTERNSHIP GRID
+========================================================= */
+
+.internships-grid {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+/* =========================================================
+   INTERNSHIP CARD
+========================================================= */
+
+.internship-card {
+  position: relative;
+  padding: 28px;
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.internship-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+  opacity: 0.8;
+}
+
+.internship-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   INTERNSHIP ICON
+========================================================= */
+
+.internship-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  font-size: 25px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.internship-card h2 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   COMPANY
+========================================================= */
+
+.internship-company {
+  margin: 0 0 16px;
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.internship-description {
+  min-height: 72px;
+  margin-bottom: 20px;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.internship-details {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 22px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(2, 6, 23, 0.42);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.internship-details span {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STUDENT ACTIONS
+========================================================= */
+
+.internship-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.internship-view-btn,
+.internship-apply-btn {
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* VIEW */
+
+.internship-view-btn {
+  flex: 1;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  background: rgba(37, 99, 235, 0.08);
+  color: #93c5fd;
+}
+
+.internship-view-btn:hover {
+  background: rgba(37, 99, 235, 0.18);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+
+/* APPLY */
+
+.internship-apply-btn {
+  flex: 1;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
+}
+
+.internship-apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 24px rgba(37, 99, 235, 0.32);
+}
+
+
+/* =========================================================
+   ADMIN ACTIONS
+========================================================= */
+
+.internship-admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.internship-edit-btn,
+.internship-delete-btn {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* EDIT */
+
+.internship-edit-btn {
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  background: rgba(37, 99, 235, 0.08);
+  color: #93c5fd;
+}
+
+.internship-edit-btn:hover {
+  background: rgba(37, 99, 235, 0.2);
+}
+
+
+/* DELETE */
+
+.internship-delete-btn {
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  background: rgba(239, 68, 68, 0.07);
+  color: #fca5a5;
+}
+
+.internship-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.16);
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+
+/* =========================================================
+   LOADING / ERROR / EMPTY
+========================================================= */
+
+.internship-message {
+  width: min(600px, 90%);
+  margin: 50px auto;
+  padding: 45px 30px;
+  text-align: center;
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.internship-message > div {
+  margin-bottom: 15px;
+  font-size: 38px;
+}
+
+.internship-message h2 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+}
+
+.internship-message p {
+  margin: 0 0 20px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+
+/* TRY AGAIN / EMPTY BUTTON */
+
+.internship-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.internship-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FORM OVERLAY
+========================================================= */
+
+.internship-form-overlay,
+.internship-view-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: rgba(2, 6, 23, 0.82);
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.internship-form-card {
+  width: min(650px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  border-radius: 18px;
+  background: #0f172a;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.55);
+}
+
+
+/* FORM HEADER */
+
+.internship-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.internship-form-header h2 {
+  margin: 0;
+  color: #f8fafc;
+}
+
+
+/* CLOSE */
+
+.internship-close-btn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 9px;
+  background: rgba(148, 163, 184, 0.06);
+  color: #cbd5e1;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.internship-close-btn:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.internship-form-group {
+  margin-bottom: 17px;
+}
+
+.internship-form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.internship-form-group input,
+.internship-form-group textarea,
+.internship-form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 13px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 9px;
+  outline: none;
+  background: #111c32;
+  color: #f8fafc;
+  font-family: inherit;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.internship-form-group textarea {
+  resize: vertical;
+}
+
+.internship-form-group input::placeholder,
+.internship-form-group textarea::placeholder {
+  color: #64748b;
+}
+
+.internship-form-group input:focus,
+.internship-form-group textarea:focus,
+.internship-form-group select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.internship-form-group small {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   FORM BUTTONS
+========================================================= */
+
+.internship-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.internship-cancel-btn,
+.internship-save-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.internship-cancel-btn {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: transparent;
+  color: #94a3b8;
+}
+
+.internship-cancel-btn:hover {
+  background: rgba(148, 163, 184, 0.08);
+  color: #e2e8f0;
+}
+
+.internship-save-btn {
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+}
+
+.internship-save-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 20px rgba(37, 99, 235, 0.25);
+}
+
+.internship-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   VIEW INTERNSHIP MODAL
+========================================================= */
+
+.internship-view-card {
+  width: min(700px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  border-radius: 20px;
+  background: #0f172a;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.55);
+}
+
+
+/* VIEW HEADER */
+
+.internship-view-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.internship-modal-tag {
+  margin: 0 0 7px;
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.internship-view-header h2 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 28px;
+}
+
+
+/* COMPANY */
+
+.internship-view-company {
+  margin: 0 0 22px;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+
+/* DETAILS */
+
+.internship-view-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.internship-view-details p {
+  margin: 0;
+  padding: 12px;
+  border-radius: 9px;
+  background: rgba(2, 6, 23, 0.4);
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.internship-view-details strong {
+  color: #cbd5e1;
+}
+
+
+/* DESCRIPTION */
+
+.internship-view-description {
+  margin-bottom: 25px;
+}
+
+.internship-view-description h3,
+.internship-view-skills h3 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+  font-size: 16px;
+}
+
+.internship-view-description p {
+  margin: 0;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+
+/* SKILLS */
+
+.internship-view-skills {
+  margin-bottom: 25px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-list span {
+  padding: 7px 11px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 20px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #93c5fd;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.back-home {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.back-home button {
+  padding: 10px 18px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 9px;
+  background: rgba(15, 23, 42, 0.7);
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.back-home button:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+  color: #dbeafe;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.internship-form-card::-webkit-scrollbar,
+.internship-view-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.internship-form-card::-webkit-scrollbar-track,
+.internship-view-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.internship-form-card::-webkit-scrollbar-thumb,
+.internship-view-card::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .internships-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .internships-page {
+    padding: 80px 20px 40px;
+  }
+
+  .internships-header h1 {
+    font-size: 40px;
+  }
+
+  .internships-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .internship-card {
+    padding: 22px;
+  }
+
+  .internship-form-card,
+  .internship-view-card {
+    padding: 22px;
+  }
+
+  .internship-view-details {
+    grid-template-columns: 1fr;
+  }
+
+  .internship-form-actions {
+    flex-direction: column;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .internship-actions {
+    flex-direction: column;
+  }
+
+  .internship-view-btn,
+  .internship-apply-btn {
+    width: 100%;
+  }
+
+  .internship-admin-actions {
+    flex-direction: column;
+  }
+
+}
