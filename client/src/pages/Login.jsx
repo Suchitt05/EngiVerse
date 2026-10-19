@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "../config";
 import "../App.css";
 
 function Login() {
@@ -16,7 +17,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        "https://engiverse-vtpa.onrender.com/api/auth/login",
+        `${API_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
@@ -49,15 +50,15 @@ function Login() {
         );
       }
 
-      setMessage("Login successful! 🎉");
+      setMessage(data.message || "Login successful! 🎉");
 
       console.log("User:", data.user);
       console.log("Token:", data.token);
+      console.log("Email sent:", data.emailSent);
 
-      // Redirect to home after login
       setTimeout(() => {
         window.location.href = "/";
-      }, 1000);
+      }, 4000);
 
     } catch (error) {
       console.error("Login Error:", error);

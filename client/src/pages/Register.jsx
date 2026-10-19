@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "../config";
 import "../App.css";
 
 function Register() {
@@ -25,7 +26,7 @@ function Register() {
 
     try {
       const response = await fetch(
-        "https://engiverse-vtpa.onrender.com/api/auth/register",
+        `${API_URL}/api/auth/register`,
         {
           method: "POST",
           headers: {
@@ -42,7 +43,7 @@ function Register() {
         return;
       }
 
-      setMessage("Account created successfully! 🎉");
+      setMessage(data.message || "Account created successfully! 🎉");
 
       console.log("Registered user:", data);
     } catch (error) {
