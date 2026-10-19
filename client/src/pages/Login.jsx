@@ -50,7 +50,7 @@ function Login() {
         );
       }
 
-      setMessage(data.message || "Login successful! 🎉");
+      setMessage("Login successful! 🎉");
 
       console.log("User:", data.user);
       console.log("Token:", data.token);

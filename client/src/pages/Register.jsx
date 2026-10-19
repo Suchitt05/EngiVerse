@@ -43,7 +43,7 @@ function Register() {
         return;
       }
 
-      setMessage(data.message || "Account created successfully! 🎉");
+      setMessage("Account created successfully! 🎉");
 
       console.log("Registered user:", data);
     } catch (error) {
